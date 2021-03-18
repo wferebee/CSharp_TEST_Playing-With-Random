@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace PlayingWithRandom
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            //Random random = new Random(1); // dont do this beacuse the random numbers will be the same everytime you run the program;
+            Random random = new Random(); // typically only need to instantiate this once per app unless you are using async methods or non thread safe methods?
+
+            List<int> randomList = new List<int>();
+
+            for(var i = 0; i < 10; i++)
+            {
+
+                int currentNum = random.Next(1, 51);
+                randomList.Add(currentNum);
+                Console.WriteLine(currentNum);
+             
+            }
+
+
+
+
+            Console.WriteLine("\n\n");
+
+            Console.WriteLine($"\n\n Willies Second Random Number From The Single Instantiation\n\n " +
+                $"Random #2: {random.Next(200, 1000)}\n\n");
+
+
+
+
+
+
+
+            int sum = 0;
+
+            foreach (int num in randomList)
+            {
+                sum += num;
+                Console.WriteLine(sum);
+               
+            }
+            Console.WriteLine("\n\n final sum");
+            Console.WriteLine(sum);
+
+            Console.ReadLine();
+        }
+    }
+}
